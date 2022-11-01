@@ -3,4 +3,4 @@
 
 # Screenshots
 
-![screen recording](https://user-images.githubusercontent.com/59779189/198747070-11557660-72ab-4c5d-a4f6-d1f3b35f9c2c.gif)
+![screen recording](Simulator Screen Recording - iPhone 14 Pro - 2022-11-01 at 15.59.26.gif)
