@@ -17,6 +17,13 @@ struct AddBookView: View {
     @State private var genre = ""
     @State private var review = ""
     
+    var hasValidBook: Bool {
+        if title.trimmingCharacters(in: .whitespaces).isEmpty || author.trimmingCharacters(in: .whitespaces).isEmpty || review.trimmingCharacters(in: .whitespaces).isEmpty {
+            return false
+        }
+        return true
+    }
+    
     let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
     var body: some View {
@@ -47,17 +54,20 @@ struct AddBookView: View {
                         newBook.title = title
                         newBook.author = author
                         newBook.rating = Int16(rating)
-                        newBook.genre = genre
+                        if genre != "" {newBook.genre = genre} else {newBook.genre = "Unknown"}
                         newBook.review = review
 
                         try? moc.save()
                         dismiss()
                     }
                 }
+                .disabled(hasValidBook == false)
             }
             .navigationTitle("Add Book")
         }
     }
+    
+    
 }
 
 struct AddBookView_Previews: PreviewProvider {
