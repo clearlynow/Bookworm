@@ -56,7 +56,7 @@ struct AddBookView: View {
                         newBook.rating = Int16(rating)
                         if genre != "" {newBook.genre = genre} else {newBook.genre = "Unknown"}
                         newBook.review = review
-
+                        newBook.date = Date.now
                         try? moc.save()
                         dismiss()
                     }
